@@ -1,0 +1,7 @@
+ScenarioNo:Int:0,ScenarioName:String:0,PowerStarId:Int:0,AppearPowerStarObj:String:0,Comet:String:0,LuigiModeTimer:Int:0,AstroDome:Int:0,IsHidden:Int:0,ErrorCheck:Int:0
+4,Scenario 1,0,,,0,1,0,1
+2,Scenario 2,0,,,0,2,0,1
+1,Scenario 3,0,,,0,4,0,1
+3,Scenario 4,0,,,0,8,0,1
+5,Scenario 5,0,,,0,16,0,1
+6,Scenario 6,0,,,0,32,0,1
