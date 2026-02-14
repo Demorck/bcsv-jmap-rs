@@ -6,7 +6,7 @@
 //! ## Quick Start
 //!
 //! ```rust,no_run
-//! use bcsv::{from_file, to_csv, smg_hash_table_with_lookup, IoOptions};
+//! use lib_bcsv_jmap::{from_file, to_csv, smg_hash_table_with_lookup, IoOptions};
 //!
 //! // Create a hash table with known field names
 //! let hash_table = smg_hash_table_with_lookup("hashtable_smg.txt").unwrap();

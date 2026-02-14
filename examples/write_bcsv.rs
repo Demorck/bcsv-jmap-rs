@@ -1,7 +1,7 @@
 //! Example: Read a BCSV file and export to CSV
 
 use std::path::Path;
-use bcsv::{smg_hash_table_with_lookup, IoOptions, from_csv, to_file};
+use lib_bcsv_jmap::{smg_hash_table_with_lookup, IoOptions, from_csv, to_file};
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let lookup_path = Path::new("assets/strings_SMG.txt");
