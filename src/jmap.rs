@@ -266,6 +266,29 @@ impl<H: HashTable> JMapInfo<H> {
     pub(crate) fn entries_vec_mut(&mut self) -> &mut Vec<Entry> {
         &mut self.entries
     }
+
+    /// Recalculate field offsets and entry size based on field types.
+    pub fn recalculate_offsets(&mut self) {
+        let mut fields_with_hashes: Vec<(u32, Field)> = self
+            .fields
+            .iter()
+            .map(|(h, f)| (*h, f.clone()))
+            .collect();
+
+        fields_with_hashes.sort_by_key(|(_, f)| f.field_type.order());
+
+        let mut current_offset: u16 = 0;
+        for (hash, field) in &mut fields_with_hashes {
+            field.offset = current_offset;
+            current_offset += field.field_type.size() as u16;
+
+            if let Some(f) = self.fields.get_mut(hash) {
+                f.offset = field.offset;
+            }
+        }
+
+        self.entry_size = ((current_offset as u32 + 3) & !3) as u32;
+    }
 }
 
 /// Implement IntoIterator for JMapInfo to allow iterating over entries directly

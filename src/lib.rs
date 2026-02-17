@@ -40,6 +40,8 @@ pub mod field;
 pub mod hash;
 pub mod io;
 pub mod jmap;
+#[cfg(feature = "python")]
+pub mod python;
 
 
 pub use crate::csv::{from_csv, to_csv};
